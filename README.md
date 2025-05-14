@@ -7,7 +7,7 @@ Visit [website](https://simple-ecommerce-nptz.onrender.com/)
 
 - Product submission with name, price, description, and image
 - Product listing
-- Vector embeddings for product descriptions (OpenAI or mock) and when the OpenAI API key burns out search falls back to token search in Product's name and its description
+- Vector embeddings for product descriptions (OpenAI or mock) and when the OpenAI API key burns out, default search falls back to search input token in Product's name and its description
 
 ## Project Structure
 
