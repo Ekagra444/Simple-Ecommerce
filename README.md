@@ -1,6 +1,7 @@
 # Mini E-Commerce Platform
 
 A simple e-commerce platform built with Next.js, Prisma, PostgreSQL, and OpenAI embeddings for vector search.
+Visit [website]([http://localhost:3000](https://simple-ecommerce-nptz.onrender.com/)).
 
 ## Features
 
