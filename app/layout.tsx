@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   description: "A simple e-commerce with vector search",
   icons: {
     icon: "/faviconEccom.ico",
-  },
-    generator: 'v0.dev'
+  }
 }
 
 export default function RootLayout({
