@@ -54,8 +54,9 @@ export default function ProductList() {
       setIsLoading(false)
     }
   }
-
+const [loading, setLoading] = useState(false);
   const handleSearch = async () => {
+    setLoading(true)
     if (!searchQuery.trim()) {
       setFilteredProducts(products)
       return
@@ -78,6 +79,9 @@ export default function ProductList() {
       })
       console.error("Error searching products:", error)
     }
+    finally {
+      setLoading(false)
+    }
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -98,7 +102,7 @@ export default function ProductList() {
         />
         <Button onClick={handleSearch}>
           <Search className="h-4 w-4 mr-2" />
-          Search
+          {loading ? "Searching..." : "Search"}
         </Button>
       </div>
 
@@ -128,19 +132,28 @@ export default function ProductList() {
               {product.imageUrl ? (
                 <div className="relative h-48 w-full">
                   <Image
-                    src={product.imageUrl || "/placeholder.svg"}
+                    src={product.imageUrl || "https://imgs.search.brave.com/I34MU8qUdS0k1YpHuGPpvx9aFBRgzDLVhaw4kej1HIo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0LzM2LzEwLzUy/LzM2MF9GXzE0MzYx/MDUyODVfNExtbE5E/b3JzdzhSTkl4dE5w/M28xY0Q0ajhaY3M2/R2EuanBn"}
                     alt={product.name}
                     fill
                     className="object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
-                      target.src = "/placeholder.svg?height=200&width=400"
+                      target.src = "https://imgs.search.brave.com/I34MU8qUdS0k1YpHuGPpvx9aFBRgzDLVhaw4kej1HIo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0LzM2LzEwLzUy/LzM2MF9GXzE0MzYx/MDUyODVfNExtbE5E/b3JzdzhSTkl4dE5w/M28xY0Q0ajhaY3M2/R2EuanBn"
                     }}
                   />
                 </div>
               ) : (
                 <div className="relative h-48 w-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                  <p className="text-gray-400">No image</p>
+                  <Image
+                    src="https://imgs.search.brave.com/I34MU8qUdS0k1YpHuGPpvx9aFBRgzDLVhaw4kej1HIo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0LzM2LzEwLzUy/LzM2MF9GXzE0MzYx/MDUyODVfNExtbE5E/b3JzdzhSTkl4dE5w/M28xY0Q0ajhaY3M2/R2EuanBn"
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = "https://imgs.search.brave.com/I34MU8qUdS0k1YpHuGPpvx9aFBRgzDLVhaw4kej1HIo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0LzM2LzEwLzUy/LzM2MF9GXzE0MzYx/MDUyODVfNExtbE5E/b3JzdzhSTkl4dE5w/M28xY0Q0ajhaY3M2/R2EuanBn"
+                    }}
+                  />
                 </div>
               )}
 

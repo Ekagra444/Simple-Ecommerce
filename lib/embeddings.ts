@@ -7,7 +7,7 @@ const openai = process.env.OPENAI_API_KEY
 
 // Custom result type to handle quota issues
 export type EmbeddingResult = {
-  embedding: number[] | null;
+  embedding: number[]|null;
   quotaExceeded: boolean;
 };
 
@@ -47,10 +47,10 @@ export async function generateEmbedding(text: string): Promise<EmbeddingResult> 
     
     if (isQuotaError) {
       console.warn("OpenAI quota exceeded, falling back to text search");
-      return {
-        embedding: null,
-        quotaExceeded: true
-      };
+       return { 
+      embedding:null,
+      quotaExceeded: false
+    };
     }
     
     // For other errors, return a mock embedding
