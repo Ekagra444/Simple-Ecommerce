@@ -102,7 +102,7 @@ export default function ProductSubmissionForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="price">Price (Rs) *</Label>
+        <Label htmlFor="price">Price (INR) *</Label>
         <Input
           id="price"
           name="price"
