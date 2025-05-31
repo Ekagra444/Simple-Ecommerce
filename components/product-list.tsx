@@ -166,7 +166,7 @@ const [loading, setLoading] = useState(false);
               </CardContent>
 
               <CardFooter className="flex justify-between border-t pt-4">
-                <p className="font-bold">${product.price.toFixed(2)}</p>
+                <p className="font-bold">₹{product.price.toFixed(2)}</p>
                 <p className="text-sm text-gray-500">Added on {new Date(product.createdAt).toLocaleDateString()}</p>
               </CardFooter>
             </Card>
